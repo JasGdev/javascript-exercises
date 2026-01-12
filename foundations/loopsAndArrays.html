@@ -1,0 +1,64 @@
+<!doctype html>
+<script src="https://en.js.cx/test/libs.js"></script>
+<script src="test.js"></script>
+<script>
+
+  function camelize(str){
+    return str
+        .split("-")
+        .map((item, index) => index == 0 ? item : item[0].toUpperCase() + item.splice(1))
+        .join("");
+  }
+
+  function filterRange(arr, a, b){
+    return arr.filter(item => (a <= item && item <= b));
+  }
+
+
+//given array arr remove all values except those that are between a and b. The test is: a ≤ arr[i] ≤ b.
+//iterate across arr, testing each time when test fails, if it fails use splice to remove it, while decrementing i by 1 for the decrease in length
+  function filterRangeInPlace(arr, a, b){
+    for (let i = 0; i < arr.length(); i++){
+        let currVal = arr[i];
+
+        if (a > currVal || currVal > b){
+            arr.splice(i, 1);
+            i--;
+        }
+    }
+
+  }
+
+//given array sort in decreasing order
+  function decreasingSort(a, b){
+    if (a > b) return -1;
+    if (a == b) return 0;
+    if (a < b) return 1;
+  }
+  arr.sort(decreasingSort)
+
+  //same as this
+  arr.sort((a,b) => b - a);
+
+
+//make a sorted copy of array of strings arr, keeping arr unmodified
+
+  function copySorted(arr){
+    copy = arr.slice()
+    copy.sort((a,b) => a - b);
+    //didn't need the above
+    return arr.slice().sort()
+  }
+//shuffles (randomly reorders) elements of the array.
+  function shuffle(arr){
+    arr.sort(() => 0.5-Math.random());
+  }
+
+// return an array with unique items of arr
+  function unique(arr) {
+    const uniqueItems = arr.filter((item) => uniqueItems.includes(item));
+    return uniqueItems
+}
+</script>
+
+</html>
