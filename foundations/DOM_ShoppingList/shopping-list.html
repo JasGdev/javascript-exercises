@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <form>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </form>
+
+    <ul>
+
+    </ul>
+
+    <script>
+        // create variables that hold ref to ul, input, button elements
+        let listRef = document.querySelector('ul');
+        let inputRef = document.querySelector('input');
+        let buttonRef = document.querySelector('button');
+        
+        // function that will run in response to the button being clicked
+        buttonRef.addEventListener('click', (event) => {
+            event.preventDefault();
+            console.log(inputRef.value);
+
+            let currVal = inputRef.value;
+            inputRef.value = '';
+
+            let listItem = document.createElement('li');
+            let spanItem = document.createElement('span');
+            let buttonItem = document.createElement('button');
+            
+            listItem.appendChild(spanItem);
+            listItem.appendChild(buttonItem);
+            spanItem.textContent = currVal;
+            buttonItem.textContent = 'Delete';
+
+            listRef.appendChild(listItem);
+
+            buttonItem.addEventListener('click', () => listItem.remove())
+            inputRef.focus();
+
+        } )
+
+        
+
+        
+
+        
+
+        
+        
+
+
+
+    </script>
+  </body>
+</html>
