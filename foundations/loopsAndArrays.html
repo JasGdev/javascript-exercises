@@ -56,9 +56,16 @@
 
 // return an array with unique items of arr
   function unique(arr) {
-    const uniqueItems = arr.filter((item) => uniqueItems.includes(item));
-    return uniqueItems
+    let uniqueArr = [];
+    for (let item of arr){
+      if (!uniqueArr.includes(item)){
+        uniqueArr.push(item);
+      }
+    }
+    return uniqueArr
 }
+
+
 </script>
 
 </html>
