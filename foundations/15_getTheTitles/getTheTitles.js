@@ -1,4 +1,5 @@
-const getTheTitles = function() {
+const getTheTitles = function(list) {
+    return list.map((x) => x.title)
 
 };
 
